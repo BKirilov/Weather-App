@@ -2,8 +2,46 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/fe8d91ae50.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
     <title>BKirilov - Weather App</title>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <header class="search-box">
+        <input
+          type="text"
+          class="form-control"
+          autocomplete="off"
+          placeholder="Search for a location"
+        />
+      </header>
+      <main>
+        <section class="location">
+          <div class="city"></div>
+          <div class="date-time"></div>
+        </section>
+        <div class="current-weather">
+          <div class="big-temp"></div>
+          <div class="weather"></div>
+          <div class="feels-like-temp"></div>
+        </div>
+        <div class="forecast"></div>
+      </main>
+    </div>
+    <script src="app.js"></script>
+  </body>
 </html>

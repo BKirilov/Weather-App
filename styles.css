@@ -5,16 +5,81 @@
 
 body {
   background-image: url(images/raining_mobile.jpg);
+  background-size: cover;
   background-repeat: no-repeat;
-  height: 833px;
-  background-position: center;
+  background-position: top center;
+  font-family: "montserrat", sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.6)
+  );
 }
 
 header {
-  padding: 65px 15px 20px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 65px 25px 25px 25px;
 }
 
 .form-control {
   border-radius: 12px;
   padding-bottom: 8px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+  font-size: 1em;
+  font-weight: bold;
+  transition: 0.2 ease-out;
+}
+
+main {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.city {
+  color: #fff;
+  font-size: 2em;
+  font-weight: 600;
+  margin-bottom: -2px;
+}
+.date-time {
+  color: #fff;
+  font-size: 1em;
+}
+
+.big-temp {
+  color: #fff;
+  font-size: 6.5em;
+  font-weight: 900;
+  margin: 10px 0 15px 0;
+  text-shadow: 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.big-temp span {
+  font-weight: 500;
+}
+
+.weather {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+  font-style: italic;
+  margin-bottom: 15px;
+  text-shadow: 0px 3px rgba(0, 0, 0, 0.4);
+}
+
+.feels-like-temp {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 500;
+  text-shadow: 0px 4px rgba(0, 0, 0, 0.4);
 }

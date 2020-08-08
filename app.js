@@ -5,40 +5,83 @@ const api = {
 
 const searchBox = document.querySelector(".form-control");
 const body = document.querySelector("body");
+const forecast = document.querySelector(".forecast");
+let now = new Date();
 
 searchBox.addEventListener("keypress", setQuery);
 
-function getResult(query) {
-  fetch(`${api.baseurl}weather?q=${query}&units=metric&appid=${api.key}`)
-    .then((data) => data.json())
-    .then(displayResult);
+function setQuery(event) {
+  if (event.keyCode == 13) {
+    getData(searchBox.value);
+    searchBox.value = "";
+  }
 }
 
-function displayResult(location) {
-  console.log(location);
-  let city = document.querySelector(".city");
-  city.innerText = `${location.name}, ${location.sys.country}`;
+function getData(query) {
+  fetch(`${api.baseurl}weather?q=${query}&units=metric&appid=${api.key}`)
+    .then((location) => location.json())
+    .then(getResult);
+}
 
-  let now = new Date();
+function getResult(location) {
+  let lon = location.coord.lon;
+  let lat = location.coord.lat;
+  let city = document.querySelector(".location .city");
+  city.innerHTML = `${location.name}, ${location.sys.country}`;
+  fetch(
+    `${api.baseurl}onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=metric&APPID=${api.key}`
+  )
+    .then((location) => location.json())
+    .then(displayCurrentWeather);
+}
+
+function displayCurrentWeather(location) {
+  console.log(location);
+
   let dateTime = document.querySelector(".date-time");
   dateTime.innerText = dateBuilder(now);
 
   let bigTemp = document.querySelector(".big-temp");
-  bigTemp.innerHTML = `${Math.round(location.main.temp)}<span>°C</span>`;
+  bigTemp.innerHTML = `${Math.round(location.current.temp)}<span>°C</span>`;
 
   let weatherDesc = document.querySelector(".weather");
-  weatherDesc.innerText = `${location.weather[0].main}`;
+  weatherDesc.innerText = `${location.current.weather[0].main}`;
 
   let feelsLike = document.querySelector(".feels-like-temp");
   feelsLike.innerHTML = `Feels like ${Math.round(
-    location.main.feels_like
-  )}<span>°C</span>`;
+    location.current.feels_like
+  )}°C`;
+  displayForecast(location.daily);
 }
 
-function setQuery(event) {
-  if (event.keyCode == 13) {
-    getResult(searchBox.value);
+function displayForecast(location) {
+  location.splice(5, 3);
+  forecast.innnerHTML = "";
+  for (let i = 0; i < location.length; i++) {
+    createForecast(location[i], i + 1);
   }
+}
+
+function createForecast(day, to_add) {
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let n = now.getDay() + to_add;
+  let name = n <= 6 ? days[n] : days[n - 7];
+  const item = document.createElement("div");
+  item.classList.add("day");
+  item.innerHTML = `<div class="name">${name}</div>
+  <div class="temp">${Math.round(day.temp.min)}° / ${Math.round(
+    day.temp.max
+  )}°</div>
+  <div class="weather>${day.weather[0].main}</div>`;
+  forecast.appendChild(item);
 }
 
 function dateBuilder(d) {

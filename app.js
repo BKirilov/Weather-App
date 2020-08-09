@@ -48,15 +48,15 @@ function displayCurrentWeather(location) {
   weatherDesc.innerText = `${location.current.weather[0].main}`;
 
   let feelsLike = document.querySelector(".feels-like-temp");
-  feelsLike.innerHTML = `Feels like ${Math.round(
+  feelsLike.innerHTML = `Feels like <span class="feels-degrees">${Math.round(
     location.current.feels_like
-  )}°C`;
+  )}°C</span>`;
   displayForecast(location.daily);
 }
 
 function displayForecast(location) {
   location.splice(5, 3);
-  forecast.innnerHTML = "";
+  forecast.innerHTML = "";
   for (let i = 0; i < location.length; i++) {
     createForecast(location[i], i + 1);
   }
@@ -80,7 +80,7 @@ function createForecast(day, to_add) {
   <div class="temp">${Math.round(day.temp.min)}° / ${Math.round(
     day.temp.max
   )}°</div>
-  <div class="weather>${day.weather[0].main}</div>`;
+  <div class="weather-forecast">${day.weather[0].main}</div>`;
   forecast.appendChild(item);
 }
 

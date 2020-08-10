@@ -38,6 +38,24 @@ function getResult(location) {
 function displayCurrentWeather(location) {
   console.log(location);
 
+  if (location.current.weather[0].main == "Rain") {
+    body.classList.add("weather_rain");
+  } else {
+    body.classList.remove("weather_rain");
+  }
+
+  if (location.current.weather[0].main == "Clouds") {
+    body.classList.add("weather_clouds");
+  } else {
+    body.classList.remove("weather_clouds");
+  }
+
+  if (location.current.weather[0].main == "Clear") {
+    body.classList.add("weather_clear");
+  } else {
+    body.classList.remove("weather_clear");
+  }
+
   let dateTime = document.querySelector(".date-time");
   dateTime.innerText = dateBuilder(now);
 

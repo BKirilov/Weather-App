@@ -5,13 +5,24 @@
 }
 
 body {
-  background-image: url(images/raining_mobile.jpg);
+  background-image: url(images/sunny.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
   font-family: "montserrat", sans-serif;
 }
 
+.weather_rain {
+  background-image: url(images/raining_mobile.jpg);
+}
+
+.weather_clouds {
+  background-image: url(images/dark_cloudy_forest.jpg);
+}
+
+.weather_clear {
+  background-image: url(images/clear.jpg);
+}
 .container-fluid {
   display: flex;
   flex-direction: column;
@@ -129,9 +140,9 @@ main {
 }
 
 @media (min-width: 700px) {
-  body {
+  /* body {
     background-image: url(images/raining.jpg);
-  }
+  } */
 
   .forecast {
     display: flex;

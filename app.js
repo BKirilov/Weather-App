@@ -6,6 +6,7 @@ const api = {
 const searchBox = document.querySelector(".form-control");
 const body = document.querySelector("body");
 const forecast = document.querySelector(".forecast");
+const footer = document.querySelector("footer");
 let now = new Date();
 
 searchBox.addEventListener("keypress", setQuery);
@@ -56,6 +57,12 @@ function displayCurrentWeather(location) {
     body.classList.remove("weather_clear");
   }
 
+  if (location.current.weather[0].main == "Thunderstorm") {
+    body.classList.add("weather_thunderstorm");
+  } else {
+    body.classList.remove("weather_thunderstorm");
+  }
+
   let dateTime = document.querySelector(".date-time");
   dateTime.innerText = dateBuilder(now);
 
@@ -69,6 +76,7 @@ function displayCurrentWeather(location) {
   feelsLike.innerHTML = `Feels like <span class="feels-degrees">${Math.round(
     location.current.feels_like
   )}°C</span>`;
+  footer.innerHTML = `BKirilov Weather <span>&copy;</span> 2020`;
   displayForecast(location.daily);
 }
 

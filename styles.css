@@ -13,19 +13,19 @@ body {
 }
 
 .weather_rain {
-  background-image: url(./images/raining_mobile.jpg);
+  background-image: url(images/raining_mobile.jpg);
 }
 
 .weather_clouds {
-  background-image: url(./images/dark_cloudy_forest.jpg);
+  background-image: url(images/dark_cloudy_forest.jpg);
 }
 
 .weather_clear {
-  background-image: url(./images/clear.jpg);
+  background-image: url(images/clear.jpg);
 }
 
 .weather_thunderstorm {
-  background-image: url(./images/storm.jpg);
+  background-image: url(images/storm.jpg);
 }
 .container-fluid {
   display: flex;

@@ -13,11 +13,13 @@ body {
 }
 
 .weather_rain {
-  background-image: url(images/raining_mobile.jpg);
+  background-image: url(images/rain.jpg);
+  background-position: center;
 }
 
 .weather_clouds {
   background-image: url(images/dark_cloudy_forest.jpg);
+  background-position: center;
 }
 
 .weather_clear {
@@ -27,14 +29,15 @@ body {
 .weather_thunderstorm {
   background-image: url(images/storm.jpg);
 }
+
 .container-fluid {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   background-image: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.1),
-    rgba(0, 0, 0, 0.6)
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.7)
   );
   margin: 0;
   padding: 0;

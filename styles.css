@@ -5,7 +5,7 @@
 }
 
 body {
-  background-image: url(images/sunny.jpg);
+  background-image: url(Images/sunny.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -13,21 +13,21 @@ body {
 }
 
 .weather_rain {
-  background-image: url(images/rain.jpg);
+  background-image: url(Images/rain.jpg);
   background-position: center;
 }
 
 .weather_clouds {
-  background-image: url(images/dark_cloudy_forest.jpg);
+  background-image: url(Images/dark_cloudy_forest.jpg);
   background-position: center;
 }
 
 .weather_clear {
-  background-image: url(images/clear.jpg);
+  background-image: url(Images/clear.jpg);
 }
 
 .weather_thunderstorm {
-  background-image: url(images/storm.jpg);
+  background-image: url(Images/storm.jpg);
 }
 
 .container-fluid {
